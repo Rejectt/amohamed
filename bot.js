@@ -98,7 +98,7 @@ if (message.content.toLowerCase().startsWith(prefix + `تذكرة`)) {
         c.send({ embed: embed });
     }).catch(console.error);
 }
-if (message.content.toLowerCase().startsWith(prefix + `قفل`)) {
+if (message.content.toLowerCase().startsWith(prefix + `cl`)) {
     if (!message.channel.name.startsWith(`ticket`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج قناة التذاكر`);
 
     message.channel.send(`**confirm** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد اكتب`)
