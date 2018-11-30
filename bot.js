@@ -37,6 +37,8 @@ message.author.send("**لـ ارسال رسالة لجميع الاعضاء : !b
 لمسح الشات !مسح وعدد الرسائل المراد مسحها 
 لـ قفل التيكيت !close 
 لـ انشاء الوان !cc عدد الالوان 
+حصول علي رتبه ريمبو  يجب اولا الحصول علي [Premuim] لتفعيل البريميوم تواصل مع [Spriggan#8847
+#8847
 **`);
     }
 });    
@@ -164,7 +166,7 @@ if(message.content.startsWith(prefix + 'ch')) {
 	
 	client.on("ready", () => {
   function lol() {
-    client.guilds.get('517694324599685120').roles.find("name", "RainBoww").setColor("RANDOM");
+    client.guilds.get('515952323730735135').roles.find("name", "RainBoww").setColor("RANDOM");
   };
   setInterval(lol, 1600);
 });
