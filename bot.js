@@ -153,12 +153,6 @@ if(message.content.startsWith(prefix + 'ch')) {
  
     });
 	
-	client.on("ready", () => {
-  function lol() {
-    client.guilds.get('517860566732374026').roles.find("name", "RainBoww").setColor("RANDOM");
-  };
-  setInterval(lol, 1600);
-});
 
 	client.on("ready", () => {
   function lol() {
