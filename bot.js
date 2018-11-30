@@ -225,22 +225,6 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
             }
        });
 	
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return; 
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField(':running_shirt_with_sash: | name :  ',`${member}`)
-        .addField(':loudspeaker: | نورت السيرفر ي قلبي' , `Welcome to the server, ${member}`)
-        .addField(':id: | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                      
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-         });
 
 client.on("message", msg => {
   if(msg.content === '!' + "id") {
@@ -261,21 +245,3 @@ client.on("message", msg => {
   }
 });
 
- client.on('message',function(message) {
-        if (message.author.bot) return;
-      var prefix = "!";
-                        if(!message.channel.guild) return;
-      
-                          if (message.content === prefix + "fm") {
-       const embed = new Discord.RichEmbed()
-      
-          .setDescription(`**Members info :sparkles:
-      :green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
-      :heart:  dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
-      :yellow_heart:  idle:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
-      :diamond_shape_with_a_dot_inside:   membersCount:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
-      :bulb: bots: ${message.guild.members.filter(m=>m.user.bot).size} **`)
-               message.channel.send({embed});
-      
-          }
-            });
