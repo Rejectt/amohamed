@@ -196,17 +196,6 @@ var prefix = "!";
  }
 });
 
-
-client.on("message", (message) => {
-if (message.content.startsWith("!cv")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'voice');
-    message.channel.sendMessage('تـم إنـشاء روم صـوتي')
-    
-}
-});
-
       client.on('message', message => {
                                 if(!message.channel.guild) return;
                         if (message.content.startsWith('*ping')) {
@@ -294,23 +283,3 @@ client.on("message", msg => {
       
           }
             });
-
-client.on('message', message => {
-    if (!message.channel.guild) return;
-if(message.content =='!count')
-var IzRo = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setFooter(message.author.username, message.author.avatarURL)
-.setTitle(':tulip:| Members info')
-.addBlankField(true)
-.addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
-message.channel.send(IzRo);
-});
-
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
