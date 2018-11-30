@@ -241,7 +241,7 @@ client.on('message', message => {
 });
 
  client.on('message', message => {
-	var prefix = "$"
+	var prefix = "!"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -281,7 +281,7 @@ client.on('message', message => {
 
 client.on('message', async message =>{
     if (message.author.boss) return;
-      var prefix = "$";
+      var prefix = "!";
   
   if (!message.content.startsWith(prefix)) return;
       let command = message.content.split(" ")[0];
@@ -337,3 +337,12 @@ client.on('message', async message =>{
     }
   
   });
+
+client.on('message',function(message) {
+    let prefix = "!";
+let args = message.content.split(" ").slice(1).join(" ");
+if(message.content.startsWith(prefix + "say")) {
+if(!args) return;
+message.channel.send(`**${args}**`);
+}
+});
