@@ -361,7 +361,7 @@ client.on("guildMemberAdd", member => {
 client.on('message', message => {
   if (true) {
 if (message.content === '!invite') {
-      message.author.send('  https://discordapp.com/oauth2/authorize?client_id=515951600154705960&scope=bot&permissions=36760572|  تفضل ربط البوت     ').catch(e => console.log(e.stack));
+      message.author.send('  https://discordapp.com/oauth2/authorize?client_id=515951600154705960&scope=bot&permissions=36760572|  رابط دعوه مالتي بوت     ').catch(e => console.log(e.stack));
 
     }
    } 
