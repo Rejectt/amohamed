@@ -349,8 +349,8 @@ message.channel.send(`**${args}**`);
 
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
+  return channel.send(`:pray: نورت السيرفر ياحب , انشاء الله تستمتع معانا وتكون ف مقدمة السيرفر :pray:  
+:radioactive: اسمك :  ${member}:radioactive:   
+انت العضو رقم  ${member.guild.memberCount} `) 
 }).catch(console.error)
 })
