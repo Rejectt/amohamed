@@ -394,11 +394,4 @@ hours = 12;
                 message.channel.send(`:heavy_multiplication_x:| **i Don't Have Prem**`);
                   console.log(e);
                 }
-              });
-            });
-          });
-        });
-      });
-    });
-  }
 });
