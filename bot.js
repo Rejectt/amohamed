@@ -20,14 +20,17 @@ client.user.setStatus("dnd");
 
 
 client.on('message', message => {
-     if (message.content === "اوامر برودكاست") {
+     if (message.content === "mh") {
 message.author.send("**لـ ارسال رسالة لجميع الاعضاء : !bc**" + `  **
-ل عمل تيكيت :new 
+ل عمل تيكيت :!new 
 لمسح الشات !مسح وعدد الرسائل المراد مسحها 
 لـ قفل التيكيت !close 
 لـ انشاء الوان !cc عدد الالوان 
-حصول علي رتبه ريمبو  يجب اولا الحصول علي [Premuim] لتفعيل البريميوم تواصل مع [Spriggan#8847
-#8847
+حصول علي رتبه ريمبو  يجب اولا الحصول علي [Premuim] لتفعيل البريميوم تواصل مع [X-49#4908]
+لـ رابط دعوه البوت : !invite
+لـ عمل كيك لاي عضو : !kick
+لـ عمل باند لاي عضو : !ban 
+لـ عمل ميوت لـ عضو :!mute [محتمل عطل]
 **`);
     }
 });    
@@ -370,7 +373,7 @@ client.on('message', message => {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+  .addField("تم ارسال رابط البوت في الخاص , شكرا لاستخدام مالتي بوت ")
      
      
      
