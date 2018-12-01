@@ -31,6 +31,7 @@ message.author.send("**لـ ارسال رسالة لجميع الاعضاء : !b
 لـ عمل كيك لاي عضو : !kick
 لـ عمل باند لاي عضو : !ban 
 لـ عمل ميوت لـ عضو :!mute [محتمل عطل]
+لـ عرض معلومات السيرفر:!server
 **`);
     }
 });    
@@ -379,4 +380,71 @@ client.on('message', message => {
      
   message.channel.sendEmbed(embed);
     }
+});
+
+client.on('message', function(msg) {
+    if(msg.content.startsWith ('!server')) {
+      if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setThumbnail(msg.guild.iconURL)
+      .addField(':globe_with_meridians: **اسم السيرفر : **' , `**[ ${msg.guild.name} ]**`,true)
+      .addField(':earth_africa: ** موقع السيرفر :**',`**[ ${msg.guild.region} ]**`,true)
+      .addField(':military_medal:** الرتب :**',`**[ ${msg.guild.roles.size} ]**`,true)
+      .addField(':bust_in_silhouette:** عدد الاعضاء :**',`**[ ${msg.guild.memberCount} ]**`,true)
+      .addField(':white_check_mark:** عدد الاعضاء الاونلاين :**',`**[ ${msg.guild.members.filter(m=>m.presence.status == 'online').size} ]**`,true)
+      .addField(':pencil:** الرومات الكتابية :**',`**[ ${msg.guild.channels.filter(m => m.type === 'text').size} ]**`,true)
+      .addField(':loud_sound:** رومات الصوت :**',`**[ ${msg.guild.channels.filter(m => m.type === 'voice').size} ]**`,true)
+      .addField(':crown:** صاحب السيرفر :**',`**[ ${msg.guild.owner} ]**`,true)
+      .addField(':id:** ايدي السيرفر :**',`**[ ${msg.guild.id} ]**`,true)
+      .addField(':date:** تم عمل السيرفر في : **',msg.guild.createdAt.toLocaleString())
+      msg.channel.send({embed:embed});
+    }
+  });
+
+ client.on('message', message =>{
+    let args = message.content.split(' ');
+    let prefix = '!'; 
+    
+    if(args[0] === `!{prefix}avatar`){
+        let mentions = message.mentions.members.first()
+        if(!mentions) {
+          let sicon = message.author.avatarURL
+          let embed = new Discord.RichEmbed()
+          .setImage(message.author.avatarURL)
+          .setColor("#f7abab") 
+          .setDescription(`**${message.author.username}#${message.author.discriminator}**'s avatar :`);
+          message.channel.send({embed})
+        } else {
+          let sicon = mentions.user.avatarURL
+          let embed = new Discord.RichEmbed()
+          .setColor("#f7abab")
+          .setDescription(`**${mentions.user.username}#${mentions.user.discriminator}**'s avatar :`)
+          .setImage(sicon)
+          message.channel.send({embed})
+        }
+    });
+
+client.on("message", msg => {
+  if(msg.content === '!' + "id") {
+      const embed = new Discord.RichEmbed();
+  embed.addField("🔱| اسم الحساب :", `${msg.author.username}#${msg.author.discriminator}`, true)
+          .addField("🆔| الاي دي :", `${msg.author.id}`, true)
+          .setColor("RANDOM")
+          .setFooter(msg.author.username , msg.author.avatarURL)
+          .setThumbnail(`${msg.author.avatarURL}`)
+          .setTimestamp()
+          .setURL(`${msg.author.avatarURL}`)
+          .addField('📛| الحالة :', `${msg.author.presence.status.toUpperCase()}`, true)
+          .addField('🎲| بلاينج :', `${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name}`, true)
+          .addField('🏅| الرتب : ', `${msg.member.roles.filter(r => r.name).size}`, true)
+          .addField('📅| تم الانضمام للديسكورد في :', `${msg.createdAt}`,true)
+          .addField('🤖| هل هو بوت ؟', `${msg.author.bot.toString().toUpperCase()}`, true);
+      msg.channel.send({embed: embed})
+  }
+});
+	 
+	 
+	 
+	 
 });
