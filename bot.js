@@ -406,7 +406,7 @@ client.on('message', function(msg) {
     let args = message.content.split(' ');
     let prefix = '!'; 
     
-    if(args[0] === `!{prefix}avatar`){
+    if(args[0] === `avatar`){
         let mentions = message.mentions.members.first()
         if(!mentions) {
           let sicon = message.author.avatarURL
